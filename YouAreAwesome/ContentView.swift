@@ -16,7 +16,7 @@ struct ContentView: View {
                 .scaledToFit()
                 .foregroundStyle(.orange)
     
-            Text("You Are Awesome!")
+            Text("I am an app developer!")
                 .font(.largeTitle)
                 .foregroundStyle(.orange)
                 .fontWeight(.heavy)
@@ -24,7 +24,6 @@ struct ContentView: View {
         
         .padding()
         
-        //comment
     }
     
 }
