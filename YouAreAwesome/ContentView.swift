@@ -29,7 +29,7 @@ struct ContentView: View {
             Spacer()
 
             Button("Press Me!") {
-                toggleMessageAndImage()
+                toggleMessageAndImage2()
 
             }
 
@@ -55,6 +55,17 @@ struct ContentView: View {
             message = awesomeString
             imageName = image2
         }
+    }
+    
+    func toggleMessageAndImage2(){
+        let awesomeString = "You Are Awesome!"
+        let greatString = "You Are Great!"
+        let image1 = "sun.max.fill"
+        let image2 = "hand.thumbsup"
+        
+        message = (message == awesomeString) ? greatString : awesomeString
+        imageName = imageName == image1 ? image2 : image1
+        
     }
 }
 #Preview {
