@@ -8,50 +8,59 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var message = "I Am A Programmer!"
+    @State private var message = ""
+    @State private var imageName = ""
 
     var body: some View {
-        
+
         VStack {
             Spacer()
-            
-            Image(systemName: "swift")
+
+            Image(systemName: imageName)
                 .resizable()
                 .scaledToFit()
                 .foregroundStyle(.orange)
-                .frame(width: 200, height: 200)
-    
+            //.frame(width: 200, height: 200)
+
             Text(message)
                 .font(.largeTitle)
                 .fontWeight(.ultraLight)
-            
+
             Spacer()
-            
-            HStack{
-                
-                Button("Awesome!") {
-                    message = "Awesome!"
-                }
-                
-                Button("Great!") {
-                    
-                    message = "Great!"
-                }
-               
+
+            Button("Press Me!") {
+                toggleMessageAndImage()
+
             }
+
             .buttonStyle(.borderedProminent)
             .font(.title2)
             .tint(.orange)
-         
-            
         }
-        
-        .padding()
-        
-    }
-    
-}
 
+        .padding()
+
+    }
+
+    func toggleMessageAndImage(){        
+        let awesomeString = "You Are Awesome!"
+        let greatString = "You Are Great!"
+        let image1 = "sun.max.fill"
+        let image2 = "hand.thumbsup"
+        if message == awesomeString{
+            message = greatString
+            imageName = image1
+        }
+        else{
+            message = awesomeString
+            imageName = image2
+        }
+    }
+}
 #Preview {
     ContentView()
 }
+
+//command a, control i
+//remove extra blank lines:
+//Find > Find and Replace, Replace ^\s*$, Select Regular Expression, leave with blank, all
