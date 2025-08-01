@@ -10,62 +10,51 @@ import SwiftUI
 struct ContentView: View {
     @State private var message = ""
     @State private var imageName = ""
+    @State private var imageNumber = 0
 
     var body: some View {
 
         VStack {
             Spacer()
 
-            Image(systemName: imageName)
+            Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .foregroundStyle(.orange)
-            //.frame(width: 200, height: 200)
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .shadow(radius: 30)
+
 
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.ultraLight)
+                .fontWeight(.heavy)
+                .foregroundStyle(.red)
 
             Spacer()
 
             Button("Press Me!") {
-                toggleMessageAndImage2()
+                let awesomeString = "You Are Awesome!"
+                let greatString = "You Are Great!"
+                
+                message = (message == awesomeString) ? greatString : awesomeString
+                //TODO: Update the imageName variable
+               
+               // imageName = "image" + String(imageNumber)
+                imageName = "image\(imageNumber)"
+                
+                imageNumber += 1
+                
+                if imageNumber > 9 {
+                    imageNumber = 0
+                }
 
             }
-
             .buttonStyle(.borderedProminent)
             .font(.title2)
-            .tint(.orange)
+           
         }
 
         .padding()
 
-    }
-
-    func toggleMessageAndImage(){        
-        let awesomeString = "You Are Awesome!"
-        let greatString = "You Are Great!"
-        let image1 = "sun.max.fill"
-        let image2 = "hand.thumbsup"
-        if message == awesomeString{
-            message = greatString
-            imageName = image1
-        }
-        else{
-            message = awesomeString
-            imageName = image2
-        }
-    }
-    
-    func toggleMessageAndImage2(){
-        let awesomeString = "You Are Awesome!"
-        let greatString = "You Are Great!"
-        let image1 = "sun.max.fill"
-        let image2 = "hand.thumbsup"
-        
-        message = (message == awesomeString) ? greatString : awesomeString
-        imageName = imageName == image1 ? image2 : image1
-        
     }
 }
 #Preview {
