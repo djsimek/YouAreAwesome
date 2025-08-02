@@ -47,30 +47,9 @@ struct ContentView: View {
             Button("Show Message") {
                 
                 
-                message = messages[messageIndex]
-                //                if (messageIndex < messages.count-1){
-                //                    messageIndex+=1}
-                //                else{
-                //                    messageIndex = 0
-                //                }
-                messageIndex += 1
-                if(messageIndex == messages.count){
-                    messageIndex = 0
-                }
-                
-                
-                
-                
-                //message = (message == message1) ? message2 : message1
-                
-                // imageName = "image" + String(imageNumber)
-                imageName = "image\(imageNumber)"
-                
-                imageNumber += 1
-                
-                if imageNumber > 9 {
-                    imageNumber = 0
-                }
+                message = messages[Int.random(in: 0...messages.count-1)]
+
+                imageName = "image\(Int.random(in: 0...9))"
                 
             }
             .buttonStyle(.borderedProminent)
